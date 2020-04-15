@@ -15,7 +15,7 @@ let appData = {
     optionalExpenses: {},
     income: [],
     timeData: time,
-    savings: false
+    savings: true,
 };
 
 
@@ -33,5 +33,43 @@ function chooseExpenses() {
 
 };
 chooseExpenses();
-appData.moneyPerDay = (appData.budget / 30).toFixed();
+
+function detectDayBudget () {
+    appData.moneyPerDay = (appData.budget / 30).toFixed();
+}
+detectDayBudget()
 alert(`Budget per day: ${appData.moneyPerDay}`);
+
+function checkSaving() {
+    if (appData.savings == true) {
+        let save = +prompt("Какова сумма накопленний?", "");
+        let percent = +prompt("Под какой процент", "");
+        appData.montjIncome = save/100/12*percent;
+        alert("Доход в месяц с вашего депозита: " + appData.moneyPerDay);
+    }
+}
+checkSaving();
+detectLevel();
+function detectLevel() {
+    if (money < 100) {
+        alert ("Нищеброд")
+    } else if (money >= 100 && money < 2000) {
+        alert ("Its normal")
+    } else if (money > 2000 && money < 10000) {
+        alert ("HARD")
+    } else if (money > 10000) {
+        alert("Extra hard")
+    } else {
+        alert ("WTF dude?")
+    }
+}
+function optionalExpenses() {
+
+    for (let i = 1; i < 4; i++) {
+        let question = prompt("Какие необьязательные рассходы?", "");
+        optionalExpenses[i] = question;
+        if (typeof(question) != "string") {
+            i--
+        }
+    }
+}
