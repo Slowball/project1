@@ -1,3 +1,29 @@
+let startButton = document.getElementById("start")[0],
+    budgetValue = document.getElementsByClassName("budget-value")[0],
+    dayDudgetValue = document.getElementsByClassName("daybudget-value")[0],
+    levelValue = document.getElementsByClassName("level-value")[0],
+    expensesValue = document.getElementsByClassName("expenses-value")[0],
+    optionalExpensesValue = document.getElementsByClassName("optionalexpenses-value")[0],
+    incomeValue = document.getElementsByClassName("income-value")[0],
+    monthSavingsValue = document.getElementsByClassName("monthsavings-value")[0],
+
+
+    yearSavingsValue = document.getElementsByClassName("yearsavings-value")[0],
+    inputExpenses = document.getElementsByClassName("expenses-item"),
+    btnEnter = document.getElementsByTagName("button")[0],
+    btnCencel = document.getElementsByTagName("button")[1],
+    btnCount = document.getElementsByTagName("button")[2],
+    optional = document.querySelectorAll(".optionalexpenses-item"),
+    inconeChose = document.querySelector(".choose-income"),
+    checkSeving = document.querySelector("#savings"),
+
+    summAcum = document.querySelector(".choose-sum"),
+    percentAcum = document.querySelector(".choose-percent"),
+    yearsValue = document.querySelector(".year-value"),
+    monthValue = document.querySelector(".month-value"),
+    dayValue = document.querySelector(".day-value");
+
+
 let money, time;
 
 function start() {
@@ -82,8 +108,3 @@ let appData = {
 for (let key in appData) {
     alert(`Our programm have this data: ${key} - ${appData[key]}`);
 }
-
-
-
-
-
