@@ -27,7 +27,9 @@ let startButton = document.getElementById("start"),
 
 let money, time;
 
-
+btnOptional.disabled = true;
+btnCount.disabled = true;
+btnEnter.disabled = true;
 startButton.addEventListener('click', function (){
     time = prompt('Введите дату в формате YYYY-MM-DD', '');
     money = +prompt("Ваш бюджет на месяц?", '');
@@ -40,6 +42,11 @@ startButton.addEventListener('click', function (){
     yearsValue.value = new Date(Date.parse(time)).getFullYear();
     monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
     dayValue.value = new Date(Date.parse(time)).getDate();
+    
+
+    btnEnter.disabled = false;
+    btnOptional.disabled = false;
+    btnCount.disabled = false;
 });
 
 btnEnter.addEventListener('click', function () {
@@ -73,7 +80,7 @@ btnOptional.addEventListener('click', () => {
 
 btnCount.addEventListener('click', () => {
     if(appData.budget != undefined) {
-    appData.moneyPerDay = (appData.budget / 30).toFixed();
+    appData.moneyPerDay = ((appData.budget - expensesValue.textContent)/ 30).toFixed();
     dayDudgetValue.textContent = appData.moneyPerDay;
 
     if (appData.moneyPerDay < 100) {
@@ -130,7 +137,7 @@ percentAcum.addEventListener('input', () => {
         monthSavingsValue.textContent =  appData.montjIncome.toFixed(1);
         yearSavingsValue.textContent = appData.yearIncome.toFixed(1);
     }
-})
+});
 
 let appData = {
     budget: money,
